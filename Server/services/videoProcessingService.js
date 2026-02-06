@@ -121,7 +121,9 @@ function ensureStreamable(filePath) {
           fs.renameSync(tmpPath, absolutePath);
           resolve();
         } catch (e) {
-          fs.unlinkSync(tmpPath).catch(() => {});
+          try {
+            fs.unlinkSync(tmpPath);
+          } catch (_) {}
           reject(e);
         }
       })
