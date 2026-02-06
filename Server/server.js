@@ -23,7 +23,7 @@ app.use("/api", routes);
 app.set("io", io);
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/upload-demo.html");
+  res.send("Hello from the server!");
 });
 
 io.use((socket, next) => {
