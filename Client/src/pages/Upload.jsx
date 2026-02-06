@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/useAuth.js";
 import { uploadVideo } from "../api/client.js";
 import { getSocket, subscribeVideoProgress } from "../api/socket.js";
 import toast from "../utils/toast.js";
@@ -57,6 +58,7 @@ function getTitleFromFile(file) {
 
 export default function Upload() {
   const navigate = useNavigate();
+  const { user } = useAuth();
   const [file, setFile] = useState(null);
   const [dragActive, setDragActive] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -64,6 +66,10 @@ export default function Upload() {
   const [processingVideoId, setProcessingVideoId] = useState(null);
   const [processingProgress, setProcessingProgress] = useState(0);
   const inputRef = useRef(null);
+
+  useEffect(() => {
+    if (user?.role === "viewer") navigate("/library", { replace: true });
+  }, [user?.role, navigate]);
 
   useEffect(() => {
     if (!processingVideoId) return;

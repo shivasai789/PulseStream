@@ -6,9 +6,9 @@ import UserMenu from "./UserMenu.jsx";
 
 const SIDEBAR_COLLAPSED_KEY = "pulsestream_sidebar_collapsed";
 
-const navItems = [
+const allNavItems = [
   { to: "/", label: "Dashboard", icon: "grid" },
-  { to: "/upload", label: "Upload", icon: "upload" },
+  { to: "/upload", label: "Upload", icon: "upload", roles: ["editor", "admin"] },
   { to: "/library", label: "Library", icon: "library" },
 ];
 
@@ -63,6 +63,9 @@ function NavIcon({ icon }) {
 export default function DashboardLayout() {
   const { user } = useAuth();
   const isAdmin = user?.role === "admin";
+  const navItems = allNavItems.filter(
+    (item) => !item.roles || item.roles.includes(user?.role)
+  );
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(() => {
     try {
