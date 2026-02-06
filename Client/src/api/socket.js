@@ -1,6 +1,8 @@
 import { io } from "socket.io-client";
 
-const SOCKET_URL = import.meta.env.VITE_SERVER_URL;
+// Socket.IO uses the path as namespace. Server only has default namespace "/", so connect to
+const base = import.meta.env.VITE_SERVER_URL ?? "";
+const SOCKET_URL = base.replace(/\/api\/?$/, "") || base;
 
 let socket = null;
 
