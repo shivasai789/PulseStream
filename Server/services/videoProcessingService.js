@@ -118,7 +118,8 @@ function ensureStreamable(filePath) {
       .output(pathForFfmpeg(tmpPath))
       .on("end", () => {
         try {
-          fs.renameSync(tmpPath, absolutePath);
+          fs.copyFileSync(tmpPath, absolutePath);
+          fs.unlinkSync(tmpPath);
           resolve();
         } catch (e) {
           try {
