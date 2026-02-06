@@ -3,7 +3,11 @@ const fs = require('fs');
 const crypto = require('crypto');
 const multer = require('multer');
 
-const UPLOAD_DIR = process.env.UPLOAD_DIR || path.join(process.cwd(), 'uploads', 'videos');
+// On Vercel (and similar serverless), filesystem is read-only except /tmp.
+const isServerless = process.env.VERCEL === '1';
+const UPLOAD_DIR = isServerless
+  ? path.join('/tmp', 'videos')
+  : (process.env.UPLOAD_DIR ? path.resolve(process.env.UPLOAD_DIR) : path.join(process.cwd(), 'uploads', 'videos'));
 const VIDEO_MAX_SIZE = Number(process.env.VIDEO_MAX_SIZE) || 500 * 1024 * 1024; // 500MB
 
 const ALLOWED_MIME_TYPES = [
