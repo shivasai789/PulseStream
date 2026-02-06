@@ -11,7 +11,7 @@ import Admin from "./pages/Admin.jsx";
 
 function ProtectedRoute({ children }) {
   const { isAuthenticated, userLoading } = useAuth();
-  if (userLoading) return <div className="app-loading">Loading…</div>;
+  if (userLoading) return <div className="app-loading"><div className="loader" /></div>;
   if (!isAuthenticated) return <Navigate to="/login" replace />;
   return children;
 }
