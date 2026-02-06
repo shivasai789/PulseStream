@@ -1,0 +1,245 @@
+/* Upload page */
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.upload-zone {
+  position: relative;
+  border: 2px dashed var(--ps-border);
+  border-radius: var(--ps-radius);
+  background: #f8fafc;
+  padding: 0;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  overflow: hidden;
+}
+
+.upload-zone:hover,
+.upload-zone-active {
+  border-color: var(--ps-text-muted);
+  background: #f1f5f9;
+}
+
+.upload-zone-has-file {
+  border-color: #22c55e;
+  background: #f0fdf4;
+}
+
+.upload-input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 0;
+}
+
+.upload-zone-header {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.upload-zone-header-icon {
+  color: var(--ps-text-muted);
+  flex-shrink: 0;
+}
+
+.upload-zone-header-text {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ps-text);
+}
+
+.upload-zone-body {
+  position: relative;
+  z-index: 0;
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.upload-zone-icon-large {
+  display: block;
+  margin: 0 auto 1.25rem;
+  color: var(--ps-text-muted);
+}
+
+.upload-zone-has-file .upload-zone-icon-large {
+  color: #16a34a;
+}
+
+.upload-zone-title {
+  margin: 0 0 0.35rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--ps-text);
+}
+
+.upload-zone-hint {
+  margin: 0 0 1.25rem;
+  font-size: 0.875rem;
+  color: var(--ps-text-muted);
+  line-height: 1.4;
+}
+
+.upload-browse-btn {
+  position: relative;
+  z-index: 1;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: #fff;
+  background: var(--ps-text);
+  border: none;
+  border-radius: var(--ps-radius-sm);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.upload-browse-btn:hover {
+  background: #1e293b;
+}
+
+.upload-zone-max {
+  margin: 0;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.8125rem;
+  color: var(--ps-text-muted);
+  text-align: center;
+}
+
+.upload-zone-selected {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: #f0fdf4;
+}
+
+.upload-zone-filename {
+  font-weight: 600;
+  color: var(--ps-text);
+  font-size: 0.875rem;
+}
+
+.upload-zone-filesize {
+  font-size: 0.8125rem;
+  color: var(--ps-text-muted);
+}
+
+.upload-zone-remove {
+  margin-left: auto;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #dc2626;
+  background: transparent;
+  border: 1px solid #fecaca;
+  border-radius: var(--ps-radius-sm);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.upload-zone-remove:hover {
+  background: #fef2f2;
+  border-color: #f87171;
+}
+
+.upload-error {
+  margin: 0;
+  padding: 0.65rem 0.875rem;
+  font-size: 0.875rem;
+  color: #b91c1c;
+  background: #fef2f2;
+  border-radius: var(--ps-radius-sm);
+}
+
+.upload-submit {
+  padding: 0.65rem 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: #fff;
+  background: var(--ps-text);
+  border: none;
+  border-radius: var(--ps-radius-sm);
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+}
+
+.upload-submit:hover:not(:disabled) {
+  background: #1e293b;
+}
+
+.upload-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.upload-submit-full {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  font-size: 1rem;
+}
+
+.upload-progress-wrap {
+  padding: 1rem 0;
+  border-top: 1px solid var(--ps-border);
+}
+
+.upload-progress-label {
+  margin: 0 0 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ps-text-muted);
+}
+
+.upload-progress-bar {
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.35rem;
+}
+
+.upload-progress-fill {
+  height: 100%;
+  background: var(--ps-text);
+  border-radius: 4px;
+  transition: width 0.25s ease;
+}
+
+.upload-progress-percent {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--ps-text-muted);
+}
+
+@media (max-width: 480px) {
+  .upload-zone-body {
+    padding: 1.5rem 1rem;
+  }
+
+  .upload-zone-icon-large {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+  }
+
+  .upload-zone-title {
+    font-size: 1rem;
+  }
+
+  .upload-zone-hint {
+    font-size: 0.8125rem;
+  }
+}

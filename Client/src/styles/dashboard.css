@@ -1,0 +1,12 @@
+/**
+ * PulseStream Dashboard styles – composed from section files.
+ * Import this single file in the app (e.g. main.jsx).
+ */
+@import "./variables.css";
+@import "./layout.css";
+@import "./dashboard-page.css";
+@import "./recent-activity.css";
+@import "./upload.css";
+@import "./library.css";
+@import "./video-detail.css";
+@import "./admin.css";

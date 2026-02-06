@@ -1,0 +1,271 @@
+/* Recent Activity – section and detailed cards */
+.recent-activity-section {
+  margin-top: 1.5rem;
+}
+
+.recent-activity-section .card-title {
+  margin-bottom: 1rem;
+}
+
+.recent-activity-empty-card {
+  padding: 2rem;
+  text-align: center;
+}
+
+.recent-activity-empty-text {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--ps-text-muted);
+}
+
+.activity-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.activity-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--ps-surface);
+  border: 1px solid var(--ps-border);
+  border-radius: var(--ps-radius);
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.activity-card:hover {
+  box-shadow: var(--ps-shadow-md);
+  border-color: #cbd5e1;
+}
+
+.activity-card-thumb {
+  position: relative;
+  width: 120px;
+  min-width: 120px;
+  height: 68px;
+  background: #f1f5f9;
+  border-radius: var(--ps-radius-sm);
+  overflow: hidden;
+}
+
+.activity-card-thumb-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ps-text-muted);
+}
+
+.activity-card-duration {
+  position: absolute;
+  right: 0.35rem;
+  bottom: 0.35rem;
+  padding: 0.15rem 0.4rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 4px;
+}
+
+.activity-card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.activity-card-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.activity-card-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ps-text);
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+.activity-card-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+
+.activity-card-status-safe {
+  color: #166534;
+  background: #dcfce7;
+}
+
+.activity-card-status-flagged {
+  color: #b91c1c;
+  background: #fee2e2;
+}
+
+.activity-card-status-processing {
+  color: #a16207;
+  background: #fef3c7;
+}
+
+.activity-card-status-failed {
+  color: #b91c1c;
+  background: #fee2e2;
+}
+
+.activity-card-status-default {
+  color: var(--ps-text-muted);
+  background: #f1f5f9;
+}
+
+.activity-card-type {
+  margin-bottom: 0.25rem;
+}
+
+.activity-card-type-badge {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--ps-text-muted);
+}
+
+.activity-card-type-uploaded,
+.activity-card-type-processing {
+  color: #a16207;
+}
+
+.activity-card-type-complete {
+  color: #166534;
+}
+
+.activity-card-type-flagged,
+.activity-card-type-failed {
+  color: #b91c1c;
+}
+
+.activity-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8125rem;
+  color: var(--ps-text-muted);
+}
+
+.activity-card-sep {
+  color: var(--ps-text-muted);
+  opacity: 0.7;
+}
+
+.activity-card-arrow {
+  flex-shrink: 0;
+  color: var(--ps-text-muted);
+  transition: color 0.2s, transform 0.2s;
+}
+
+.activity-card:hover .activity-card-arrow {
+  color: var(--ps-text);
+  transform: translateX(2px);
+}
+
+@media (max-width: 600px) {
+  .activity-card {
+    padding: 0.875rem 1rem;
+    gap: 0.75rem;
+  }
+
+  .activity-card-thumb {
+    width: 96px;
+    min-width: 96px;
+    height: 54px;
+  }
+
+  .activity-card-title {
+    font-size: 0.9375rem;
+  }
+
+  .activity-card-arrow {
+    display: none;
+  }
+}
+
+/* Activity list (legacy / alternate) */
+.activity-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.activity-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.activity-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 0.4rem;
+}
+
+.activity-dot.yellow {
+  background: #eab308;
+}
+
+.activity-dot.green {
+  background: #22c55e;
+}
+
+.activity-dot.red {
+  background: #ef4444;
+}
+
+.activity-text {
+  color: var(--ps-text);
+  flex: 1;
+  font-weight: 500;
+}
+
+.activity-time {
+  font-size: 0.8125rem;
+  color: var(--ps-text-muted);
+  white-space: nowrap;
+}
+
+.activity-item-empty {
+  padding: 0.5rem 0;
+}
+
+.activity-item-empty .activity-text {
+  color: var(--ps-text-muted);
+}
+
+@media (max-width: 480px) {
+  .activity-item {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .activity-time {
+    width: 100%;
+    margin-left: 1.5rem;
+  }
+}

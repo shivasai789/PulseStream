@@ -1,0 +1,270 @@
+/* Admin Panel */
+.admin-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: #fff;
+  background: var(--ps-text);
+  border: none;
+  border-radius: var(--ps-radius-sm);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.admin-add-btn:hover {
+  background: #1e293b;
+}
+
+.admin-table-card {
+  overflow: hidden;
+  padding: 0;
+}
+
+.admin-table-card .card-title {
+  margin: 0;
+  padding: 1.25rem 1.25rem 0;
+}
+
+.admin-table-wrap {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 0.875rem 1.25rem;
+  text-align: left;
+  border-bottom: 1px solid var(--ps-border);
+}
+
+.admin-table th {
+  font-weight: 600;
+  color: var(--ps-text-muted);
+  background: #f8fafc;
+}
+
+.admin-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.admin-table-user {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.admin-table-name {
+  font-weight: 600;
+  color: var(--ps-text);
+}
+
+.admin-table-email {
+  font-size: 0.8125rem;
+  color: var(--ps-text-muted);
+}
+
+.admin-role-pill,
+.admin-status-pill {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+}
+
+.admin-role-admin {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+
+.admin-role-user {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.admin-status-pill {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.admin-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  border-radius: var(--ps-radius-sm);
+  background: transparent;
+  color: var(--ps-text-muted);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.admin-action-btn:hover {
+  background: #f1f5f9;
+  color: var(--ps-text);
+}
+
+.admin-action-btn-danger:hover {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.admin-action-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.admin-table-empty {
+  text-align: center;
+  color: var(--ps-text-muted);
+  padding: 2rem !important;
+}
+
+/* Admin modals */
+.admin-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 1rem;
+}
+
+.admin-modal {
+  background: var(--ps-surface);
+  border-radius: var(--ps-radius);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 420px;
+  padding: 1.5rem;
+}
+
+.admin-modal-title {
+  margin: 0 0 1.25rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ps-text);
+}
+
+.admin-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.admin-form-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ps-text);
+}
+
+.admin-form-input {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9375rem;
+  font-family: inherit;
+  border: 1px solid var(--ps-border);
+  border-radius: var(--ps-radius-sm);
+  background: var(--ps-surface);
+  color: var(--ps-text);
+}
+
+.admin-form-input:focus {
+  outline: none;
+  border-color: var(--ps-text);
+  box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.15);
+}
+
+.admin-form-hint {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--ps-text-muted);
+}
+
+.admin-delete-text {
+  margin: 0 0 1.25rem;
+  font-size: 0.9375rem;
+  color: var(--ps-text);
+}
+
+.admin-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.admin-modal-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  font-family: inherit;
+  border-radius: var(--ps-radius-sm);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.admin-modal-btn-secondary {
+  background: transparent;
+  border: 1px solid var(--ps-border);
+  color: var(--ps-text);
+}
+
+.admin-modal-btn-secondary:hover {
+  background: #f1f5f9;
+}
+
+.admin-modal-btn-primary {
+  background: var(--ps-text);
+  color: #fff;
+  border: none;
+}
+
+.admin-modal-btn-primary:hover:not(:disabled) {
+  background: #1e293b;
+}
+
+.admin-modal-btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.admin-modal-btn-danger {
+  background: #dc2626;
+  color: #fff;
+  border: none;
+}
+
+.admin-modal-btn-danger:hover:not(:disabled) {
+  background: #b91c1c;
+}
